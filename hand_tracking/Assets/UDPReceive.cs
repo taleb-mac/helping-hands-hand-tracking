@@ -20,7 +20,7 @@ public class UDPReceive : MonoBehaviour
     {
 
         receiveThread = new Thread(
-            new ThreadStart(ReceiveData));
+        new ThreadStart(ReceiveData));
         receiveThread.IsBackground = true;
         receiveThread.Start();
     }
