@@ -28,7 +28,7 @@ public class Bomb : MonoBehaviour
         scoreText.anchorMin = new Vector2(0.5f, 0.5f);
         scoreText.anchorMax = new Vector2(0.5f, 0.5f);
         scoreText.pivot = new Vector2(0.5f, 0.5f);
-        scoreText.localPosition = new Vector3(0, 5f, scoreText.position.z);
+        scoreText.localPosition = new Vector3(0, 0, scoreText.localPosition.z);
         StartCoroutine(ExplodeSequence());
 
     }
