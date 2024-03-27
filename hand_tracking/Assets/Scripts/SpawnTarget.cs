@@ -11,6 +11,11 @@ public class SpawnTarget : MonoBehaviour
     public float[] rangeZ;
 
 
+    private void Start()
+    {
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<SpawnTarget>().Spawn();
+    }
+
     public void Spawn()
     {
         Vector3 pos = new Vector3(Random.Range(rangeX[0], rangeX[1]), Random.Range(rangeY[0], rangeY[1]), Random.Range(rangeZ[0], rangeZ[1]));

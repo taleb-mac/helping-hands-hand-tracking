@@ -10,10 +10,7 @@ public class HandTracking : MonoBehaviour
 
 
 
-    private void Start()
-    {
-        GameObject.FindGameObjectWithTag("GameController").GetComponent<SpawnTarget>().Spawn();
-    }
+
 
     // Update is called once per frame
     void Update()

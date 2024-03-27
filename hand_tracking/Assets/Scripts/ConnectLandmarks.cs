@@ -8,6 +8,9 @@ public class ConnectLandmarks : MonoBehaviour
 
     public Transform origin;
     public Transform destination;
+
+    private Vector3 direction;
+    public Vector3 Direction => direction;
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
@@ -20,5 +23,7 @@ public class ConnectLandmarks : MonoBehaviour
     {
         lineRenderer.SetPosition(0, origin.position);
         lineRenderer.SetPosition(1, destination.position);
+        direction = new Vector3(destination.position.x - origin.position.x, destination.position.y - origin.position.y, 0);
+
     }
 }
