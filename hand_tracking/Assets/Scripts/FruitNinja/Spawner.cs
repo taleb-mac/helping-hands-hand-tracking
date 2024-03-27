@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Collider))]
 public class Spawner : MonoBehaviour
@@ -8,7 +9,7 @@ public class Spawner : MonoBehaviour
 
     public GameObject[] fruitPrefabs;
     public GameObject bombPrefab;
-    [Range(0f, 1f)] public float bombChance = 0.05f;
+    [Range(0f, 1f)] public float bombChance = 0.1f;
 
     public float minSpawnDelay = 0.25f;
     public float maxSpawnDelay = 1f;
@@ -21,9 +22,14 @@ public class Spawner : MonoBehaviour
 
     public float maxLifetime = 5f;
 
+    Text scoreText;
+    int score;
+
+
     private void Awake()
     {
         spawnArea = GetComponent<Collider>();
+        scoreText = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
     }
 
     private void OnEnable()
@@ -52,7 +58,7 @@ public class Spawner : MonoBehaviour
             {
                 x = Random.Range(spawnArea.bounds.min.x, spawnArea.bounds.max.x),
                 y = Random.Range(spawnArea.bounds.min.y, spawnArea.bounds.max.y),
-                z = Random.Range(spawnArea.bounds.min.z, spawnArea.bounds.max.z)
+                z = 0
             };
 
             Quaternion rotation = Quaternion.Euler(0f, 0f, Random.Range(minAngle, maxAngle));
@@ -65,6 +71,12 @@ public class Spawner : MonoBehaviour
 
             yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
         }
+
+    }
+    public void IncreaseScore(int points)
+    {
+        score += points;
+        scoreText.text = score.ToString();
     }
 
 }

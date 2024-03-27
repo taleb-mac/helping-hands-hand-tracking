@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Hand
+  - Score
+  - Spawn
+  - Image
   layers:
   - Default
   - TransparentFX

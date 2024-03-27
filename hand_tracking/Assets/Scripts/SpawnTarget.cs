@@ -13,7 +13,7 @@ public class SpawnTarget : MonoBehaviour
 
     private void Start()
     {
-        GameObject.FindGameObjectWithTag("GameController").GetComponent<SpawnTarget>().Spawn();
+        GetComponent<SpawnTarget>().Spawn();
     }
 
     public void Spawn()
