@@ -8,7 +8,7 @@ public class HandTracking : MonoBehaviour
     public UDPReceive udpReceive;
     public GameObject[] handPoints;
 
-
+    public int zMultiplier;
 
 
 
@@ -38,7 +38,7 @@ public class HandTracking : MonoBehaviour
                     float y = float.Parse(points[i * 3 + 1]) / 100;
                     float z = float.Parse(points[i * 3 + 2]) / 100;
 
-                    handPoints[i].transform.localPosition = new Vector3(x, y, z);
+                    handPoints[i].transform.localPosition = new Vector3(x, y, z * zMultiplier);
                 }
             }
         }
