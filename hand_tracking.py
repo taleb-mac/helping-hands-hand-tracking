@@ -12,7 +12,7 @@ cap.set(4, 720)
 detector = HandDetector(detectionCon=0.8, maxHands=1)
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-server_address_port = ("127.0.0.1", 55140)
+server_address_port = ("127.0.0.1", 55141)
 
 def main():
     while True:
