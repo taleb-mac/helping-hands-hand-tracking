@@ -10,10 +10,6 @@ public class SpawnFish : MonoBehaviour
 
     public GameObject[] fishyPrefabs;
 
-
-    public float minSpawnDelay = 0.25f;
-    public float maxSpawnDelay = 1f;
-
     public float maxLifetime = 5f;
 
     Text scoreText;
@@ -31,8 +27,8 @@ public class SpawnFish : MonoBehaviour
 
     public void SpawnFishy()
     {
- 
-        GameObject prefab = fishyPrefabs[Random.Range(0, fishyPrefabs.Length)];
+        int choice = Random.Range(0, fishyPrefabs.Length);
+        GameObject prefab = fishyPrefabs[choice];
 
 
         Vector3 position = new Vector3
@@ -45,7 +41,7 @@ public class SpawnFish : MonoBehaviour
 
         GameObject fish = Instantiate(prefab, position, Quaternion.identity);
         Destroy(fish, maxLifetime);
-        distanceText.text = "Distance: " + ((Mathf.Round(position.z) - 42) * 10) + "cm";
+        distanceText.text = "Distance: " + ((choice + 1) * 10) + "cm";
 
 
 
